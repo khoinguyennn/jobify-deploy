@@ -566,9 +566,16 @@ export default function CVEvaluationPage() {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {evaluationResult.analysis.missingSkills.map((skill, index) => (
-                        <Badge key={index} className="bg-red-100 text-red-800 hover:bg-red-100 px-3 py-2 text-sm">
-                          {skill}
-                        </Badge>
+                        <Badge
+                        key={index}
+                        className="
+                          bg-red-100 text-red-800 hover:bg-red-100
+                          px-3 py-2 text-sm
+                          whitespace-normal break-words max-w-full
+                        "
+                      >
+                        {skill}
+                      </Badge>
                       ))}
                     </div>
                   </CardContent>
