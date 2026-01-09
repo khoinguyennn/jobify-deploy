@@ -1,0 +1,87 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+*.md
+progress-report/
+tai-lieu/
+thesis/
+
+# Docker files
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Development environment files
+.env.local
+.env.development
+.env.test
+
+# Temporary files
+tmp/
+temp/
+
+# Coverage reports
+coverage/
+
+# Build outputs (will be generated in containers)
+dist/
+build/
+.next/
+out/
+
+# Dependencies (will be installed in containers)
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn integrity file
+.yarn-integrity
+
+# TypeScript cache
+*.tsbuildinfo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
