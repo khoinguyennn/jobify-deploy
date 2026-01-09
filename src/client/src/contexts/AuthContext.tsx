@@ -78,7 +78,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const response = await authService.loginUser(credentials);
       
       if (response.success) {
-        setUser(response.data.user);
+        setUser(response.data.user || null);
         setCompany(null); // Clear company data
         setIsAuthenticated(true);
         setUserType('user');
@@ -110,7 +110,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const response = await authService.registerUser(userData);
       
       if (response.success) {
-        setUser(response.data.user);
+        setUser(response.data.user || null);
         setCompany(null); // Clear company data
         setIsAuthenticated(true);
         setUserType('user');

@@ -29,9 +29,9 @@ export class CompanyModel {
     if ('id' in company && company.id) row.id = company.id;
     if (company.nameCompany) row.nameCompany = company.nameCompany;
     if (company.nameAdmin) row.nameAdmin = company.nameAdmin;
-    if (company.email) row.email = company.email;
-    if (company.password) row.password = company.password;
-    if (company.avatarPic !== undefined) row.avatarPic = company.avatarPic;
+    if ('email' in company && company.email) row.email = company.email;
+    if ('password' in company && company.password) row.password = company.password;
+    if ('avatarPic' in company && company.avatarPic !== undefined) row.avatarPic = company.avatarPic;
     if (company.phone) row.phone = company.phone;
     if (company.idProvince !== undefined) row.idProvince = company.idProvince;
     if (company.intro !== undefined) row.intro = company.intro;

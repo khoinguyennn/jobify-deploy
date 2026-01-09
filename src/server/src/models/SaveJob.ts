@@ -12,7 +12,6 @@ export class SaveJobModel {
       idUser: row.idUser,
       idJob: row.idJob,
       createdAt: new Date(row.createdAt),
-      deletedAt: row.deletedAt ? new Date(row.deletedAt) : undefined,
     };
   }
 
@@ -49,7 +48,8 @@ export class SaveJobModel {
 
   // Utility functions
   static isActive(saveJob: SaveJob): boolean {
-    return !saveJob.deletedAt;
+    // SaveJob không có soft delete, luôn active nếu tồn tại
+    return true;
   }
 
   // Check if user has saved this job

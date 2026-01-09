@@ -54,7 +54,7 @@ export function UserAvatar({
     let url = `/api/uploads/${avatarPic}`;
     
     // Thêm cache busting nếu forceRefresh có giá trị
-    if (forceRefresh && forceRefresh !== false) {
+    if (forceRefresh) {
       const timestamp = typeof forceRefresh === 'number' ? forceRefresh : Date.now();
       url += `?t=${timestamp}`;
     }
@@ -82,7 +82,7 @@ export function UserAvatar({
     return (
       <div className={cn("relative overflow-hidden rounded-full", sizeClasses[size], className)}>
         <Image
-          key={forceRefresh && forceRefresh !== false ? `avatar-${typeof forceRefresh === 'number' ? forceRefresh : Date.now()}` : `avatar-${user?.avatarPic}`}
+          key={forceRefresh ? `avatar-${typeof forceRefresh === 'number' ? forceRefresh : Date.now()}` : `avatar-${user?.avatarPic}`}
           src={avatarUrl}
           alt={user?.name || "User avatar"}
           fill

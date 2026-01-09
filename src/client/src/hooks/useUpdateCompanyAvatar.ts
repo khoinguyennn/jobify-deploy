@@ -25,12 +25,12 @@ export const useUpdateCompanyAvatar = () => {
       
       // Merge dữ liệu mới với dữ liệu cũ để giữ lại các field khác
       const mergedCompanyData = {
-        ...currentCompanyData,
+        ...(currentCompanyData || {}),
         ...updatedCompany,
         // Đảm bảo giữ lại các field quan trọng
-        nameCompany: updatedCompany.nameCompany || currentCompanyData?.nameCompany,
+        nameCompany: updatedCompany?.nameCompany || (currentCompanyData as any)?.nameCompany,
         // API trả về fileName, cần map thành avatarPic
-        avatarPic: updatedCompany.fileName || updatedCompany.avatarPic,
+        avatarPic: updatedCompany?.fileName || updatedCompany?.avatarPic,
       };
       
       // Cập nhật cache của company profile

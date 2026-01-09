@@ -25,7 +25,7 @@ export interface CompanyRegisterRequest {
   email: string;
   password: string;
   phone: string;
-  idProvince: number;
+  idProvince?: number;
   scale?: string;
 }
 

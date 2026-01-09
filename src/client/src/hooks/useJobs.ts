@@ -1,49 +1,22 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { apiClient } from '@/services/api';
+import { Job as JobType } from '@/types';
 
-export interface Job {
-  id: number;
-  nameJob: string;
+// Extend Job type from @/types with additional alias properties
+export interface Job extends JobType {
+  // Alias properties for backward compatibility
   title?: string; // Alias for nameJob
-  idField: number;
   fieldId?: number; // Alias for idField
-  idProvince: number;
   provinceId?: number; // Alias for idProvince
-  sex?: string;
   gender?: string; // Alias for sex
-  salaryMin?: number;
-  salaryMax?: number;
-  typeWork: string;
   workingType?: string; // Alias for typeWork
-  education: string;
-  experience: string;
-  desc: string;
   description?: string; // Alias for desc
-  request: string;
   requirement?: string; // Alias for request
-  skills?: string; // New field for skills
   benefit?: string; // Alias for other
-  other?: string;
-  createdAt: string;
-  updatedAt?: string;
-  deletedAt?: string;
-  idCompany: number;
+  skills?: string; // New field for skills
   companyId?: number; // Alias for idCompany
   nameCompany?: string; // Company name directly
-  // Relations
-  field?: {
-    id: number;
-    name: string;
-  };
-  province?: {
-    id: number;
-    nameWithType: string;
-  };
-  company?: {
-    id: number;
-    nameCompany: string;
-    avatarPic?: string;
-  };
+  updatedAt?: string;
 }
 
 export interface CreateJobData {

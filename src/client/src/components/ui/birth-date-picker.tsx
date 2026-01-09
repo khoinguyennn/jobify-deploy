@@ -165,7 +165,7 @@ export function BirthDatePicker({
             onSelect={handleDateSelect}
             disabled={(date) => date > maxDate || date < minDate}
             defaultMonth={date || new Date(1990, 0)}
-            captionLayout="dropdown-buttons"
+            captionLayout="dropdown"
             fromYear={minDate.getFullYear()}
             toYear={maxDate.getFullYear()}
             locale={vi}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,7 +20,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import RelatedJobs from '@/components/RelatedJobs';
 import ApplicationDialog from '@/components/ApplicationDialog';
 
-export default function JobDetailPage() {
+function JobDetailPageContent() {
   const params = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -394,6 +394,14 @@ export default function JobDetailPage() {
         job={jobData}
       />
     </div>
+  );
+}
+
+export default function JobDetailPage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto px-4 py-6"><div className="text-center">Loading...</div></div>}>
+      <JobDetailPageContent />
+    </Suspense>
   );
 }
 

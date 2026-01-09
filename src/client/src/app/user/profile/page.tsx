@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { 
   MapPin, 
@@ -353,7 +353,7 @@ const EditableDateField = ({
   );
 };
 
-export default function UserProfilePage() {
+function UserProfilePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const activeTab = searchParams.get('tab') || 'gioi-thieu';
@@ -1322,5 +1322,13 @@ export default function UserProfilePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function UserProfilePage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto px-4 py-6"><div className="text-center">Loading...</div></div>}>
+      <UserProfilePageContent />
+    </Suspense>
   );
 }

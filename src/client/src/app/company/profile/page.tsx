@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -307,7 +307,7 @@ const EditableField = ({
   );
 };
 
-export default function CompanyProfilePage() {
+function CompanyProfilePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const tabFromUrl = searchParams.get('tab');
@@ -1431,6 +1431,14 @@ export default function CompanyProfilePage() {
         confirmText={confirmDialog.confirmText}
       />
     </div>
+  );
+}
+
+export default function CompanyProfilePage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto px-4 py-6"><div className="text-center">Loading...</div></div>}>
+      <CompanyProfilePageContent />
+    </Suspense>
   );
 }
 

@@ -67,8 +67,8 @@ export interface Job {
   experience: string;
   createdAt: string;
   deletedAt?: string;
-  // Relations
-  company?: Company;
+  // Relations - partial Company for API responses
+  company?: Partial<Company> & Pick<Company, 'id' | 'nameCompany'>;
   field?: Field;
   province?: Province;
 }

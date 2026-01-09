@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Search, MapPin, Briefcase, DollarSign, Clock, GraduationCap, Users, ChevronDown, Building, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -152,7 +152,7 @@ const ApplyButton: React.FC<{ jobId: number }> = ({ jobId }) => {
   );
 };
 
-export default function TimKiemPage() {
+function TimKiemPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -910,5 +910,13 @@ export default function TimKiemPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function TimKiemPage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto px-4 py-6"><div className="text-center">Loading...</div></div>}>
+      <TimKiemPageContent />
+    </Suspense>
   );
 }

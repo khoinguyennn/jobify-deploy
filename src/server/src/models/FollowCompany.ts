@@ -12,7 +12,6 @@ export class FollowCompanyModel {
       idUser: row.idUser,
       idCompany: row.idCompany,
       createdAt: new Date(row.createdAt),
-      deletedAt: row.deletedAt ? new Date(row.deletedAt) : undefined,
     };
   }
 
@@ -49,7 +48,8 @@ export class FollowCompanyModel {
 
   // Utility functions
   static isActive(followCompany: FollowCompany): boolean {
-    return !followCompany.deletedAt;
+    // FollowCompany không có soft delete, luôn active nếu tồn tại
+    return true;
   }
 
   // Check if user is following this company
